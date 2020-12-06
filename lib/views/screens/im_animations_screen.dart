@@ -19,7 +19,9 @@ class _State extends State<ImAnimationsScreen> {
             children: [
               SonarWidget(),
               SizedBox(height: 25),
-              ColorSonarWidget()
+              ColorSonarWidget(),
+              SizedBox(height: 25),
+              HeartBeatWidget()
             ],
           ),
         )
@@ -63,6 +65,17 @@ class ColorSonarWidget extends StatelessWidget {
         innerWaveColor: Colors.pink[200],
         middleWaveColor: Colors.pink[100],
         outerWaveColor: Colors.pink[50],
+        child: HeartIcon()
+      ),
+    );
+  }
+}
+
+class HeartBeatWidget extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: HeartBeat(
         child: HeartIcon()
       ),
     );
