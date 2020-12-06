@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:linnefromice/views/screens/im_animations_screen.dart';
 
 void main() {
   runApp(App());
@@ -13,7 +14,7 @@ class App extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: Text("Sandbox"),
+      home: ImAnimationsScreen(),
     );
   }
 }
