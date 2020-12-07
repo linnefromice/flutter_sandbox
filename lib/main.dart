@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:linnefromice/views/screens/home_screen.dart';
 import 'package:linnefromice/views/screens/im_animations_screen.dart';
 
 void main() {
@@ -14,7 +15,11 @@ class App extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: ImAnimationsScreen(),
+      initialRoute: '/',
+      routes: {
+        '/': (context) => HomeScreen(),
+        '/im_animations': (context) => ImAnimationsScreen(),
+      },
     );
   }
 }
