@@ -6,7 +6,24 @@ class DecoratedIconScreen extends StatefulWidget {
   _State createState() => _State();
 }
 
-class _State extends State<DecoratedIconScreen> {
+class _State extends State<DecoratedIconScreen> with SingleTickerProviderStateMixin {
+  AnimationController _animationController;
+
+  @override
+  void initState() {
+    super.initState();
+    _animationController = AnimationController(
+      vsync: this,
+      duration: Duration(seconds: 1)
+    )..repeat(reverse: true);
+  }
+
+  @override
+  void dispose() {
+    _animationController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
