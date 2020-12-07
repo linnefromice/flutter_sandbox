@@ -5,7 +5,27 @@ class HomeScreen extends StatelessWidget {
     {
       "label": "im_animations",
       "pathName": "/im_animations"
-    }
+    },
+    {
+      "label": "decorated_icon",
+      "pathName": "/decorated_icon"
+    },
+    {
+      "label": "like_button",
+      "pathName": "/like_button"
+    },
+    {
+      "label": "animated_text_kit",
+      "pathName": "/animated_text_kit"
+    },
+    {
+      "label": "flutter_spinkit",
+      "pathName": "/flutter_spinkit"
+    },
+    {
+      "label": "flutter_animation_set",
+      "pathName": "/flutter_animation_set"
+    },
   ];
 
   Widget _buildNavigationWidget(
