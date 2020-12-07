@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:linnefromice/views/screens/im_animations_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   final navigateCards = [
