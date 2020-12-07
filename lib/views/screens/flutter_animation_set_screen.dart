@@ -1,7 +1,5 @@
-import 'package:decorated_icon/decorated_icon.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animation_set/widget/behavior_animations.dart';
-import 'package:like_button/like_button.dart';
 
 class FlutterAnimationSetScreen extends StatefulWidget {
   @override

@@ -1,7 +1,5 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
-import 'package:decorated_icon/decorated_icon.dart';
 import 'package:flutter/material.dart';
-import 'package:like_button/like_button.dart';
 
 class AnimatedTextKitScreen extends StatefulWidget {
   @override

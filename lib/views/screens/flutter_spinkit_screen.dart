@@ -1,7 +1,5 @@
-import 'package:decorated_icon/decorated_icon.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:like_button/like_button.dart';
 
 class FlutterSpinkitScreen extends StatefulWidget {
   @override
