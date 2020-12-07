@@ -31,6 +31,7 @@ dependencies:
   im_animations: ^0.1.1
   decorated_icon: ^1.0.2
   like_button: ^1.0.4
+  animated_text_kit: ^3.0.0
 
 dev_dependencies:
   flutter_test:
