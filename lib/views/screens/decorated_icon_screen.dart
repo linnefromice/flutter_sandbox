@@ -8,14 +8,20 @@ class DecoratedIconScreen extends StatefulWidget {
 
 class _State extends State<DecoratedIconScreen> with SingleTickerProviderStateMixin {
   AnimationController _animationController;
+  Animation<double> animation;
 
   @override
   void initState() {
     super.initState();
     _animationController = AnimationController(
       vsync: this,
-      duration: Duration(seconds: 1)
-    )..repeat(reverse: true);
+      duration: Duration(seconds: 2)
+    );
+    animation = Tween<double>(begin: 0, end: 6.0).animate(_animationController)
+      ..addListener(() {
+        setState(() {});
+      });
+    _animationController.repeat(reverse: true);
   }
 
   @override
@@ -72,6 +78,22 @@ class _State extends State<DecoratedIconScreen> with SingleTickerProviderStateMi
                 BoxShadow(
                   blurRadius: 12.0,
                   color: Colors.white,
+                ),
+              ],
+            ),
+            DecoratedIcon(
+              Icons.favorite,
+              color: Colors.pink,
+              size: 50,
+              shadows: [
+                BoxShadow(
+                  blurRadius: animation.value,
+                  color: Colors.pink[300],
+                ),
+                BoxShadow(
+                  blurRadius: animation.value,
+                  color: Colors.pink[200],
+                  offset: Offset(3.0, 3.0)
                 ),
               ],
             ),
