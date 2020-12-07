@@ -10,6 +10,10 @@ class HomeScreen extends StatelessWidget {
       "label": "decorated_icon",
       "pathName": "/decorated_icon"
     },
+    {
+      "label": "like_button",
+      "pathName": "/like_button"
+    },
   ];
 
   Widget _buildNavigationWidget(
