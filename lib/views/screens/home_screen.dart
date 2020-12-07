@@ -6,6 +6,7 @@ class HomeScreen extends StatelessWidget {
     {
       "label": "im_animations",
       "screen": ImAnimationsScreen(),
+      "pathName": "/im_animations"
     }
   ];
 
@@ -19,10 +20,7 @@ class HomeScreen extends StatelessWidget {
             child: ListTile(
               leading: Icon(Icons.flight_land),
               title: Text("${navigateCards[index]["label"]}"),
-              onTap: () => Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => navigateCards[index]["screen"]),
-              ),
+              onTap: () => Navigator.pushNamed(context, navigateCards[index]["pathName"]),
             ),
           );
         },
