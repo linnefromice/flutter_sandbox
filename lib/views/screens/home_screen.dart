@@ -5,7 +5,11 @@ class HomeScreen extends StatelessWidget {
     {
       "label": "im_animations",
       "pathName": "/im_animations"
-    }
+    },
+    {
+      "label": "decorated_icon",
+      "pathName": "/decorated_icon"
+    },
   ];
 
   Widget _buildNavigationWidget(
