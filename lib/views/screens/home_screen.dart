@@ -18,6 +18,10 @@ class HomeScreen extends StatelessWidget {
       "label": "animated_text_kit",
       "pathName": "/animated_text_kit"
     },
+    {
+      "label": "flutter_spinkit",
+      "pathName": "/flutter_spinkit"
+    },
   ];
 
   Widget _buildNavigationWidget(
