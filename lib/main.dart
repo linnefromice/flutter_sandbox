@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:linnefromice/views/screens/animated_text_kit_screen.dart';
 import 'package:linnefromice/views/screens/decorated_icon_screen.dart';
+import 'package:linnefromice/views/screens/flutter_animation_set_screen.dart';
 import 'package:linnefromice/views/screens/flutter_spinkit_screen.dart';
 import 'package:linnefromice/views/screens/home_screen.dart';
 import 'package:linnefromice/views/screens/im_animations_screen.dart';
@@ -27,6 +28,7 @@ class App extends StatelessWidget {
         '/like_button': (context) => LikeButtonScreen(),
         '/animated_text_kit': (context) => AnimatedTextKitScreen(),
         '/flutter_spinkit': (context) => FlutterSpinkitScreen(),
+        '/flutter_animation_set': (context) => FlutterAnimationSetScreen(),
       },
     );
   }
