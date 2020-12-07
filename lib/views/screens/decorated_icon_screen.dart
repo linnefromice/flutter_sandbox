@@ -81,6 +81,7 @@ class _State extends State<DecoratedIconScreen> with SingleTickerProviderStateMi
                 ),
               ],
             ),
+            Text("+ animation"),
             DecoratedIcon(
               Icons.favorite,
               color: Colors.pink,
