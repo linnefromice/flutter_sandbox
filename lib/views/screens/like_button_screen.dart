@@ -1,5 +1,6 @@
 import 'package:decorated_icon/decorated_icon.dart';
 import 'package:flutter/material.dart';
+import 'package:like_button/like_button.dart';
 
 class LikeButtonScreen extends StatefulWidget {
   @override
@@ -16,7 +17,18 @@ class _State extends State<LikeButtonScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Text("LikeButtonScreen"),
+            LikeButton(),
+            LikeButton(
+              size: 50,
+              circleColor: CircleColor(
+                start: Colors.pink[200],
+                end: Colors.pink[300]
+              ),
+              bubblesColor: BubblesColor(
+                dotPrimaryColor: Colors.pink[300],
+                dotSecondaryColor: Colors.pink[200],
+              ),
+            )
           ],
         ),
       ),
