@@ -14,6 +14,10 @@ class HomeScreen extends StatelessWidget {
       "label": "like_button",
       "pathName": "/like_button"
     },
+    {
+      "label": "animated_text_kit",
+      "pathName": "/animated_text_kit"
+    },
   ];
 
   Widget _buildNavigationWidget(
