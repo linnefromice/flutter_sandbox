@@ -22,7 +22,7 @@ class _State extends State<WebviewFlutterScreen> {
         ),
       ),
       body: WebView(
-        initialUrl: 'https://flutter.dev',
+        initialUrl: 'https://beam-webfront-pd0uh0ct8.vercel.app/',
         javascriptMode: JavascriptMode.unrestricted,
       )
     );
