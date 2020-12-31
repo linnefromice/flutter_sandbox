@@ -7,9 +7,12 @@ class WebviewFlutterScreen extends StatefulWidget {
 }
 
 class _State extends State<WebviewFlutterScreen> {
+  bool isLoading;
+
   @override
   void initState() {
     super.initState();
+    isLoading = true;
   }
 
   @override
@@ -21,9 +24,21 @@ class _State extends State<WebviewFlutterScreen> {
           onPressed: () => Navigator.of(context).pop(),
         ),
       ),
-      body: WebView(
-        initialUrl: 'https://beam-webfront-pd0uh0ct8.vercel.app/',
-        javascriptMode: JavascriptMode.unrestricted,
+      body: Stack(
+        children: [
+          WebView(
+            initialUrl: 'https://beam-webfront-pd0uh0ct8.vercel.app/',
+            javascriptMode: JavascriptMode.unrestricted,
+            onPageFinished: (finish) {
+              setState(() {
+                isLoading = false;
+              });
+            },
+          ),
+          isLoading ? Center(
+            child: CircularProgressIndicator(),
+          ) : Stack()
+        ],
       )
     );
   }
