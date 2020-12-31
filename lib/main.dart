@@ -29,6 +29,7 @@ class App extends StatelessWidget {
         '/animated_text_kit': (context) => AnimatedTextKitScreen(),
         '/flutter_spinkit': (context) => FlutterSpinkitScreen(),
         '/flutter_animation_set': (context) => FlutterAnimationSetScreen(),
+        '/webview_flutter': (context) => FlutterAnimationSetScreen(),
       },
     );
   }

@@ -26,6 +26,10 @@ class HomeScreen extends StatelessWidget {
       "label": "flutter_animation_set",
       "pathName": "/flutter_animation_set"
     },
+    {
+      "label": "webview_flutter",
+      "pathName": "/webview_flutter"
+    },
   ];
 
   Widget _buildNavigationWidget(
