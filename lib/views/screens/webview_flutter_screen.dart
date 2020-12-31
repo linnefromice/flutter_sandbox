@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:webview_flutter/webview_flutter.dart';
 
 class WebviewFlutterScreen extends StatefulWidget {
   @override
@@ -6,6 +7,11 @@ class WebviewFlutterScreen extends StatefulWidget {
 }
 
 class _State extends State<WebviewFlutterScreen> {
+  @override
+  void initState() {
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -15,9 +21,10 @@ class _State extends State<WebviewFlutterScreen> {
           onPressed: () => Navigator.of(context).pop(),
         ),
       ),
-      body: Center(
-        child: Text("WebviewFlutterScreen"),
-      ),
+      body: WebView(
+        initialUrl: 'https://flutter.dev',
+        javascriptMode: JavascriptMode.unrestricted,
+      )
     );
   }
 }
