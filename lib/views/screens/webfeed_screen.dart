@@ -1,4 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:webfeed/webfeed.dart';
+import 'package:http/http.dart' as http;
+
+class RssService {
+  final _targetUrl = 'https://zenn.dev/topics/flutter/feed';
+
+  Future<RssFeed> getFeed() =>
+      http.read(_targetUrl).then((xmlString) => RssFeed.parse(xmlString));
+}
 
 class WebfeedScreen extends StatelessWidget {
   @override
