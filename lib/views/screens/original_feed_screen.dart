@@ -29,6 +29,32 @@ class OriginalFeedScreen extends StatelessWidget {
           onPressed: () => Navigator.of(context).pop(),
         ),
       ),
+      body: FutureBuilder(
+        future: FeedService().feed(),
+        builder: (BuildContext context, AsyncSnapshot snapshot) {
+          if (snapshot.hasError) return Center(child: Text(snapshot.error.toString()));
+          if (snapshot.hasData) {
+            final List list = snapshot.data;
+            return ListView.builder(
+              itemCount: list.length,
+              itemBuilder: (context, index) {
+                return ListTile(
+                  title: Text(list[index]['title']['__cdata'].toString()),
+                  subtitle: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(list[index]['dc\$creator']['\$t'].toString()),
+                      Text(list[index]['pubDate']['\$t'].toString()),
+                      Text(list[index]['description']['__cdata'].toString())
+                    ],
+                  ),
+                );
+              },
+            );
+          }
+          return Center(child: CircularProgressIndicator());
+        },
+      ),
     );
   }
 }
