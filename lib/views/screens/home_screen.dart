@@ -34,6 +34,10 @@ class HomeScreen extends StatelessWidget {
       "label": "webfeed",
       "pathName": "/web_feed"
     },
+    {
+      "label": "original_feed",
+      "pathName": "/original_feed"
+    },
   ];
 
   Widget _buildNavigationWidget(

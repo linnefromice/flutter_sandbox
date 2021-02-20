@@ -6,6 +6,7 @@ import 'package:linnefromice/views/screens/flutter_spinkit_screen.dart';
 import 'package:linnefromice/views/screens/home_screen.dart';
 import 'package:linnefromice/views/screens/im_animations_screen.dart';
 import 'package:linnefromice/views/screens/like_button_screen.dart';
+import 'package:linnefromice/views/screens/original_feed_screen.dart';
 import 'package:linnefromice/views/screens/web_feed_screen.dart';
 import 'package:linnefromice/views/screens/webview_flutter_screen.dart';
 
@@ -33,6 +34,7 @@ class App extends StatelessWidget {
         '/flutter_animation_set': (context) => FlutterAnimationSetScreen(),
         '/webview_flutter': (context) => WebviewFlutterScreen(),
         '/web_feed': (context) => WebFeedScreen(),
+        '/original_feed': (context) => OriginalFeedScreen(),
       },
     );
   }
