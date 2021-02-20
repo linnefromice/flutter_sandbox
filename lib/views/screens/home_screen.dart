@@ -32,7 +32,7 @@ class HomeScreen extends StatelessWidget {
     },
     {
       "label": "webfeed",
-      "pathName": "/webfeed"
+      "pathName": "/web_feed"
     },
   ];
 

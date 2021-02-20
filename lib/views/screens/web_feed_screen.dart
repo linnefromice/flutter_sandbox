@@ -9,7 +9,7 @@ class RssService {
       http.read(_targetUrl).then((xmlString) => RssFeed.parse(xmlString));
 }
 
-class WebfeedScreen extends StatelessWidget {
+class WebFeedScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
