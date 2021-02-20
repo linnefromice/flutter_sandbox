@@ -30,6 +30,14 @@ class HomeScreen extends StatelessWidget {
       "label": "webview_flutter",
       "pathName": "/webview_flutter"
     },
+    {
+      "label": "webfeed",
+      "pathName": "/web_feed"
+    },
+    {
+      "label": "original_feed",
+      "pathName": "/original_feed"
+    },
   ];
 
   Widget _buildNavigationWidget(

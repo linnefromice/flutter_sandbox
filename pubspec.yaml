@@ -35,6 +35,10 @@ dependencies:
   flutter_spinkit: ^4.1.2
   flutter_animation_set: ^0.0.4
   webview_flutter: ^1.0.7
+  http: ^0.12.2
+  webfeed: ^0.6.0
+  xml2json: ^4.4.0
+  url_launcher: ^5.7.10
 
 dev_dependencies:
   flutter_test:
