@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'dart:convert';
 import 'package:xml2json/xml2json.dart';
 import 'package:http/http.dart' as http;
@@ -38,15 +39,26 @@ class OriginalFeedScreen extends StatelessWidget {
             return ListView.builder(
               itemCount: list.length,
               itemBuilder: (context, index) {
-                return ListTile(
-                  title: Text(list[index]['title']['__cdata'].toString()),
-                  subtitle: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(list[index]['dc\$creator']['\$t'].toString()),
-                      Text(list[index]['pubDate']['\$t'].toString()),
-                      Text(list[index]['description']['__cdata'].toString())
-                    ],
+                return GestureDetector(
+                  onTap: () async {
+                    String url = list[index]['link']['\$t'].toString();
+                    print(url);
+                    if (await canLaunch(url)) {
+                      await launch(url);
+                    } else {
+                      throw 'Could not launch $url';
+                    }
+                  },
+                  child: ListTile(
+                    title: Text(list[index]['title']['__cdata'].toString()),
+                    subtitle: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(list[index]['dc\$creator']['\$t'].toString()),
+                        Text(list[index]['pubDate']['\$t'].toString()),
+                        Text(list[index]['description']['__cdata'].toString())
+                      ],
+                    ),
                   ),
                 );
               },
