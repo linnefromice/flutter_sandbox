@@ -39,25 +39,27 @@ class OriginalFeedScreen extends StatelessWidget {
             return ListView.builder(
               itemCount: list.length,
               itemBuilder: (context, index) {
-                return GestureDetector(
-                  onTap: () async {
-                    String url = list[index]['link']['\$t'].toString();
-                    print(url);
-                    if (await canLaunch(url)) {
-                      await launch(url);
-                    } else {
-                      throw 'Could not launch $url';
-                    }
-                  },
-                  child: ListTile(
-                    title: Text(list[index]['title']['__cdata'].toString()),
-                    subtitle: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(list[index]['dc\$creator']['\$t'].toString()),
-                        Text(list[index]['pubDate']['\$t'].toString()),
-                        Text(list[index]['description']['__cdata'].toString())
-                      ],
+                return Card(
+                  child: GestureDetector(
+                    onTap: () async {
+                      String url = list[index]['link']['\$t'].toString();
+                      print(url);
+                      if (await canLaunch(url)) {
+                        await launch(url);
+                      } else {
+                        throw 'Could not launch $url';
+                      }
+                    },
+                    child: ListTile(
+                      title: Text(list[index]['title']['__cdata'].toString()),
+                      subtitle: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(list[index]['dc\$creator']['\$t'].toString()),
+                          Text(list[index]['pubDate']['\$t'].toString()),
+                          Text(list[index]['description']['__cdata'].toString())
+                        ],
+                      ),
                     ),
                   ),
                 );
