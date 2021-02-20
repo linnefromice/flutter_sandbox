@@ -57,7 +57,7 @@ class OriginalFeedScreen extends StatelessWidget {
                         children: [
                           Text(list[index]['dc\$creator']['\$t'].toString()),
                           Text(list[index]['pubDate']['\$t'].toString()),
-                          Text(list[index]['description']['__cdata'].toString())
+                          Text(list[index]['description']['__cdata'].toString().replaceAll("\\n", "\n"))
                         ],
                       ),
                     ),
