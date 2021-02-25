@@ -4,13 +4,77 @@ import 'dart:convert';
 import 'package:xml2json/xml2json.dart';
 import 'package:http/http.dart' as http;
 
-class FeedService {
-  final _targetUrl = 'https://zenn.dev/topics/flutter/feed';
+/*
+javascript
+python
+typescript
+react
+%E5%88%9D%E5%BF%83%E8%80%85
+aws
+go
+flutter
+docker
+ios
+rails
+github
+ruby
+swift
+android
+php
+nextjs
+firebase
+css
+linux
+nodejs
+%E3%83%9D%E3%82%A8%E3%83%A0
+git
+unity
+web
+vue
+rust
+java
+mac
+laravel
+zenn
+vscode
+dart
+html
+%E6%A9%9F%E6%A2%B0%E5%AD%A6%E7%BF%92
+cpp
+gcp
+windows
+kubernetes
+githubactions
+csharp
+atcoder
+%E7%AB%B6%E3%83%97%E3%83%AD
+vim
+test
+mysql
+xcode
+kotlin
+azure
+nuxtjs
+%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0
+ubuntu
+reactnative
+%E7%AB%B6%E6%8A%80%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0
+terraform
+api
+frontend
+slack
+markdown
+firestore
+*/
 
-  Future<List> feed() async {
+class FeedService {
+  // final _targetUrl = 'https://zenn.dev/topics/flutter/feed';
+  String _buildUrl(final String genre) => "https://zenn.dev/topics/$genre/feed";
+
+  Future<List> feed(final String genre) async {
     final client = new http.Client();
     final transformer = Xml2Json();
-    return await client.get(_targetUrl).then((response) {
+    return await client.get(_buildUrl(genre)).then((response) {
       return utf8.decode(response.bodyBytes);
     }).then((bodyString) {
       transformer.parse(bodyString);
@@ -31,7 +95,7 @@ class OriginalFeedScreen extends StatelessWidget {
         ),
       ),
       body: FutureBuilder(
-        future: FeedService().feed(),
+        future: FeedService().feed("flutter"),
         builder: (BuildContext context, AsyncSnapshot snapshot) {
           if (snapshot.hasError) return Center(child: Text(snapshot.error.toString()));
           if (snapshot.hasData) {
