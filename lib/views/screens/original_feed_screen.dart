@@ -149,6 +149,7 @@ class _State extends State<OriginalFeedScreen> {
               value: dropdownValue,
               icon: Icon(Icons.arrow_downward),
               onChanged: (String newValue) {
+                _search(newValue);
                 setState(() {
                   dropdownValue = newValue;
                 });
