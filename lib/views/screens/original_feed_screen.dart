@@ -84,7 +84,27 @@ class FeedService {
   }
 }
 
-class OriginalFeedScreen extends StatelessWidget {
+class OriginalFeedScreen extends StatefulWidget {
+  @override
+  _State createState() => _State();
+}
+
+class _State extends State<OriginalFeedScreen> {
+  List _datas = [];
+
+  @override
+  void initState() {
+    super.initState();
+    _search("flutter");
+  }
+
+  void _search(final String genre) async {
+    final result = await FeedService().feed(genre);
+    setState(() {
+      _datas = result;
+    });
+  }
+
   Widget _buildCard(dynamic item) {
     return Card(
       child: GestureDetector(
@@ -121,20 +141,10 @@ class OriginalFeedScreen extends StatelessWidget {
           onPressed: () => Navigator.of(context).pop(),
         ),
       ),
-      body: FutureBuilder(
-        future: FeedService().feed("flutter"),
-        builder: (BuildContext context, AsyncSnapshot snapshot) {
-          if (snapshot.hasError) return Center(child: Text(snapshot.error.toString()));
-          if (snapshot.hasData) {
-            final List list = snapshot.data;
-            return ListView.builder(
-              itemCount: list.length,
-              itemBuilder: (context, index) {
-                return _buildCard(list[index]);
-              },
-            );
-          }
-          return Center(child: CircularProgressIndicator());
+      body: ListView.builder(
+        itemCount: _datas.length,
+        itemBuilder: (context, index) {
+          return _buildCard(_datas[index]);
         },
       ),
     );
