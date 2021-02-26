@@ -85,6 +85,33 @@ class FeedService {
 }
 
 class OriginalFeedScreen extends StatelessWidget {
+  Widget _buildCard(dynamic item) {
+    return Card(
+      child: GestureDetector(
+        onTap: () async {
+          String url = item['link']['\$t'].toString();
+          print(url);
+          if (await canLaunch(url)) {
+            await launch(url);
+          } else {
+            throw 'Could not launch $url';
+          }
+        },
+        child: ListTile(
+          title: Text(item['title']['__cdata'].toString()),
+          subtitle: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(item['dc\$creator']['\$t'].toString()),
+              Text(item['pubDate']['\$t'].toString()),
+              Text(item['description']['__cdata'].toString().replaceAll("\\n", "\n"))
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -103,30 +130,7 @@ class OriginalFeedScreen extends StatelessWidget {
             return ListView.builder(
               itemCount: list.length,
               itemBuilder: (context, index) {
-                return Card(
-                  child: GestureDetector(
-                    onTap: () async {
-                      String url = list[index]['link']['\$t'].toString();
-                      print(url);
-                      if (await canLaunch(url)) {
-                        await launch(url);
-                      } else {
-                        throw 'Could not launch $url';
-                      }
-                    },
-                    child: ListTile(
-                      title: Text(list[index]['title']['__cdata'].toString()),
-                      subtitle: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(list[index]['dc\$creator']['\$t'].toString()),
-                          Text(list[index]['pubDate']['\$t'].toString()),
-                          Text(list[index]['description']['__cdata'].toString().replaceAll("\\n", "\n"))
-                        ],
-                      ),
-                    ),
-                  ),
-                );
+                return _buildCard(list[index]);
               },
             );
           }
