@@ -91,6 +91,7 @@ class OriginalFeedScreen extends StatefulWidget {
 
 class _State extends State<OriginalFeedScreen> {
   List _datas = [];
+  String dropdownValue = 'flutter';
 
   @override
   void initState() {
@@ -141,11 +142,39 @@ class _State extends State<OriginalFeedScreen> {
           onPressed: () => Navigator.of(context).pop(),
         ),
       ),
-      body: ListView.builder(
-        itemCount: _datas.length,
-        itemBuilder: (context, index) {
-          return _buildCard(_datas[index]);
-        },
+      body: Column(
+        children: [
+          Center(
+            child: DropdownButton<String>(
+              value: dropdownValue,
+              icon: Icon(Icons.arrow_downward),
+              onChanged: (String newValue) {
+                setState(() {
+                  dropdownValue = newValue;
+                });
+              },
+              items: <String>['flutter', 'kotlin', 'swift', 'reactnative']
+                  .map<DropdownMenuItem<String>>((String value) {
+                return DropdownMenuItem<String>(
+                  value: value,
+                  child: Text(value),
+                );
+              }).toList(),
+            ),
+          ),
+          Expanded(
+            child: ListView.builder(
+              itemCount: _datas.length,
+              itemBuilder: (context, index) {
+                return _buildCard(_datas[index]);
+              },
+            ),
+          ),
+        ],
+      ),
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.refresh),
+        onPressed: () => _search("firebase"), // これでいける
       ),
     );
   }
