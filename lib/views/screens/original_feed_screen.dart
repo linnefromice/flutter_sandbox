@@ -149,9 +149,7 @@ class _State extends State<OriginalFeedScreen> {
               icon: Icon(Icons.arrow_downward),
               onChanged: (String newValue) {
                 _search(newValue);
-                setState(() {
-                  dropdownValue = newValue;
-                });
+                setState(() => dropdownValue = newValue);
               },
               items: genres.map<DropdownMenuItem<String>>((String value) {
                 return DropdownMenuItem<String>(
@@ -164,9 +162,7 @@ class _State extends State<OriginalFeedScreen> {
           Expanded(
             child: ListView.builder(
               itemCount: _datas.length,
-              itemBuilder: (context, index) {
-                return _buildCard(_datas[index]);
-              },
+              itemBuilder: (context, index) => _buildCard(_datas[index]),
             ),
           ),
         ],
