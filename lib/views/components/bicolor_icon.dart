@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 
 class BicolorIcon extends StatelessWidget {
   BicolorIcon({
-    this.iconData,
-    this.iconSize,
-    this.rate,
-    this.beginAlignment,
-    this.endAlignment,
-    this.beginColor,
-    this.endColor
+    @required this.iconData,
+    @required this.iconSize,
+    @required this.rate,
+    @required this.beginAlignment,
+    @required this.endAlignment,
+    @required this.beginColor,
+    @required this.endColor
   });
   final IconData iconData;
   final double iconSize;
