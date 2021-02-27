@@ -171,10 +171,6 @@ class _State extends State<OriginalFeedScreen> {
           ),
         ],
       ),
-      floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.refresh),
-        onPressed: () => _search("firebase"), // これでいける
-      ),
     );
   }
 }
