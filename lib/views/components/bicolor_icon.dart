@@ -1,12 +1,22 @@
 import 'package:flutter/material.dart';
 
+final Map<Alignment, Alignment> _reverseAlignment = {
+  Alignment.topLeft: Alignment.bottomRight,
+  Alignment.topCenter: Alignment.bottomCenter,
+  Alignment.topRight: Alignment.bottomLeft,
+  Alignment.centerLeft: Alignment.centerRight,
+  Alignment.centerRight: Alignment.centerLeft,
+  Alignment.bottomLeft: Alignment.topRight,
+  Alignment.bottomCenter: Alignment.topCenter,
+  Alignment.bottomRight: Alignment.topLeft,
+};
+
 class BicolorIcon extends StatelessWidget {
   BicolorIcon({
     @required this.iconData,
     @required this.iconSize,
     @required this.rate,
     @required this.beginAlignment,
-    @required this.endAlignment,
     @required this.beginColor,
     @required this.endColor
   });
@@ -14,7 +24,6 @@ class BicolorIcon extends StatelessWidget {
   final double iconSize;
   final double rate;
   final Alignment beginAlignment;
-  final Alignment endAlignment;
   final Color beginColor;
   final Color endColor;
 
@@ -23,7 +32,7 @@ class BicolorIcon extends StatelessWidget {
     return ShaderMask(
       shaderCallback: (bounds) => LinearGradient(
         begin: beginAlignment,
-        end: endAlignment,
+        end: _reverseAlignment[beginAlignment],
         colors: [beginColor, endColor],
         stops: [rate, rate],
         tileMode: TileMode.mirror,

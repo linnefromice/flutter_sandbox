@@ -15,7 +15,6 @@ class BicolorIconScreen extends StatelessWidget {
               iconSize: 50,
               rate: 0.25,
               beginAlignment: Alignment.topCenter,
-              endAlignment: Alignment.bottomCenter,
               beginColor: Colors.red,
               endColor: Colors.blue,
             )
