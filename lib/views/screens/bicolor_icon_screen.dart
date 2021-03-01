@@ -24,6 +24,17 @@ class BicolorIconScreen extends StatelessWidget {
     );
   }
 
+  Widget _buildCreditCards() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        BicolorIcon(iconData: Icons.credit_card, iconSize: 50, rate: 0.2, beginAlignment: Alignment.topLeft, beginColor: Colors.green, endColor: Colors.blue),
+        BicolorIcon(iconData: Icons.credit_card, iconSize: 50, rate: 0.5, beginAlignment: Alignment.topLeft, beginColor: Colors.green, endColor: Colors.blue),
+        BicolorIcon(iconData: Icons.credit_card, iconSize: 50, rate: 0.8, beginAlignment: Alignment.topLeft, beginColor: Colors.green, endColor: Colors.blue),
+      ],
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,8 +46,12 @@ class BicolorIconScreen extends StatelessWidget {
             child: _buildFavorites()
           ),
           Container(
-              margin: EdgeInsets.symmetric(vertical: 5),
-              child: _buildStars()
+            margin: EdgeInsets.symmetric(vertical: 5),
+            child: _buildStars()
+          ),
+          Container(
+            margin: EdgeInsets.symmetric(vertical: 5),
+            child: _buildCreditCards()
           ),
         ],
       )
