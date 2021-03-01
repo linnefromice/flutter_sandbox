@@ -12,7 +12,18 @@ class BicolorIconScreen extends StatelessWidget {
       ],
     );
   }
-  
+
+  Widget _buildStars() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        BicolorIcon(iconData: Icons.star, iconSize: 50, rate: 0.2, beginAlignment: Alignment.bottomCenter, beginColor: Colors.yellow, endColor: Colors.white),
+        BicolorIcon(iconData: Icons.star, iconSize: 50, rate: 0.5, beginAlignment: Alignment.bottomCenter, beginColor: Colors.yellow, endColor: Colors.white),
+        BicolorIcon(iconData: Icons.star, iconSize: 50, rate: 0.8, beginAlignment: Alignment.bottomCenter, beginColor: Colors.yellow, endColor: Colors.white),
+      ],
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,6 +33,10 @@ class BicolorIconScreen extends StatelessWidget {
           Container(
             margin: EdgeInsets.symmetric(vertical: 5),
             child: _buildFavorites()
+          ),
+          Container(
+              margin: EdgeInsets.symmetric(vertical: 5),
+              child: _buildStars()
           ),
         ],
       )
