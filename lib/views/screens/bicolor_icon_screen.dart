@@ -47,13 +47,16 @@ class _State extends State<BicolorIconScreen> {
   Widget _buildRatedFavorites() {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        BicolorIcon(iconData: Icons.favorite, iconSize: 50, rate: min(1, max(0, (_currentSliderValue - 0) / 20)), beginAlignment: Alignment.centerLeft, beginColor: Colors.pink, endColor: Colors.white),
-        BicolorIcon(iconData: Icons.favorite, iconSize: 50, rate: min(1, max(0, (_currentSliderValue - 20) / 20)), beginAlignment: Alignment.centerLeft, beginColor: Colors.pink, endColor: Colors.white),
-        BicolorIcon(iconData: Icons.favorite, iconSize: 50, rate: min(1, max(0, (_currentSliderValue - 40) / 20)), beginAlignment: Alignment.centerLeft, beginColor: Colors.pink, endColor: Colors.white),
-        BicolorIcon(iconData: Icons.favorite, iconSize: 50, rate: min(1, max(0, (_currentSliderValue - 60) / 20)), beginAlignment: Alignment.centerLeft, beginColor: Colors.pink, endColor: Colors.white),
-        BicolorIcon(iconData: Icons.favorite, iconSize: 50, rate: min(1, max(0, (_currentSliderValue - 80) / 20)), beginAlignment: Alignment.centerLeft, beginColor: Colors.pink, endColor: Colors.white),
-      ],
+      children: List.generate(5, (index) =>
+        BicolorIcon(
+          iconData: Icons.favorite,
+          iconSize: 50,
+          rate: min(1, max(0, (_currentSliderValue - index * 20) / 20)),
+          beginAlignment: Alignment.centerLeft,
+          beginColor: Colors.pink,
+          endColor: Colors.white
+        )
+      ),
     );
   }
 
