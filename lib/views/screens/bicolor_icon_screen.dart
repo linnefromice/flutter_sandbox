@@ -6,9 +6,9 @@ class BicolorIconScreen extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        BicolorIcon(iconData: Icons.favorite, iconSize: 50, rate: 0.3, beginAlignment: Alignment.centerLeft, beginColor: Colors.pink, endColor: Colors.white),
+        BicolorIcon(iconData: Icons.favorite, iconSize: 40, rate: 0.3, beginAlignment: Alignment.centerLeft, beginColor: Colors.pink, endColor: Colors.white),
         BicolorIcon(iconData: Icons.favorite, iconSize: 50, rate: 0.5, beginAlignment: Alignment.centerLeft, beginColor: Colors.pink, endColor: Colors.white),
-        BicolorIcon(iconData: Icons.favorite, iconSize: 50, rate: 0.7, beginAlignment: Alignment.centerLeft, beginColor: Colors.pink, endColor: Colors.white),
+        BicolorIcon(iconData: Icons.favorite, iconSize: 60, rate: 0.7, beginAlignment: Alignment.centerLeft, beginColor: Colors.pink, endColor: Colors.white),
       ],
     );
   }
@@ -17,9 +17,9 @@ class BicolorIconScreen extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        BicolorIcon(iconData: Icons.star, iconSize: 50, rate: 0.2, beginAlignment: Alignment.bottomCenter, beginColor: Colors.yellow, endColor: Colors.white),
-        BicolorIcon(iconData: Icons.star, iconSize: 50, rate: 0.5, beginAlignment: Alignment.bottomCenter, beginColor: Colors.yellow, endColor: Colors.white),
-        BicolorIcon(iconData: Icons.star, iconSize: 50, rate: 0.8, beginAlignment: Alignment.bottomCenter, beginColor: Colors.yellow, endColor: Colors.white),
+        BicolorIcon(iconData: Icons.star, iconSize: 20, rate: 0.2, beginAlignment: Alignment.bottomCenter, beginColor: Colors.yellow, endColor: Colors.white),
+        BicolorIcon(iconData: Icons.star, iconSize: 30, rate: 0.5, beginAlignment: Alignment.bottomCenter, beginColor: Colors.yellow, endColor: Colors.white),
+        BicolorIcon(iconData: Icons.star, iconSize: 40, rate: 0.8, beginAlignment: Alignment.bottomCenter, beginColor: Colors.yellow, endColor: Colors.white),
       ],
     );
   }
@@ -28,9 +28,9 @@ class BicolorIconScreen extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        BicolorIcon(iconData: Icons.credit_card, iconSize: 50, rate: 0.2, beginAlignment: Alignment.topLeft, beginColor: Colors.green, endColor: Colors.blue),
-        BicolorIcon(iconData: Icons.credit_card, iconSize: 50, rate: 0.5, beginAlignment: Alignment.topLeft, beginColor: Colors.green, endColor: Colors.blue),
-        BicolorIcon(iconData: Icons.credit_card, iconSize: 50, rate: 0.8, beginAlignment: Alignment.topLeft, beginColor: Colors.green, endColor: Colors.blue),
+        BicolorIcon(iconData: Icons.credit_card, iconSize: 90, rate: 0.2, beginAlignment: Alignment.topLeft, beginColor: Colors.green, endColor: Colors.blue),
+        BicolorIcon(iconData: Icons.credit_card, iconSize: 120, rate: 0.5, beginAlignment: Alignment.topLeft, beginColor: Colors.green, endColor: Colors.blue),
+        BicolorIcon(iconData: Icons.credit_card, iconSize: 150, rate: 0.8, beginAlignment: Alignment.topLeft, beginColor: Colors.green, endColor: Colors.blue),
       ],
     );
   }
