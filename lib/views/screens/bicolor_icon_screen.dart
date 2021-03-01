@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:linnefromice/views/components/bicolor_icon.dart';
 
-class BicolorIconScreen extends StatelessWidget {
+class BicolorIconScreen extends StatefulWidget {
+  @override
+  _State createState() => _State();
+}
+
+class _State extends State<BicolorIconScreen> {
   Widget _buildFavorites() {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
