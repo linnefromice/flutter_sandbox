@@ -38,6 +38,10 @@ class HomeScreen extends StatelessWidget {
       "label": "original_feed",
       "pathName": "/original_feed"
     },
+    {
+      "label": "bicolor_icon",
+      "pathName": "/bicolor_icon"
+    },
   ];
 
   Widget _buildNavigationWidget(
