@@ -11,35 +11,62 @@ class BicolorIconScreen extends StatefulWidget {
 class _State extends State<BicolorIconScreen> {
   double _currentSliderValue = 50;
 
+  Widget _buildFavorite({ @required final double iconSize, @required final double rate }) => BicolorIcon(
+      iconData: Icons.favorite,
+      iconSize: iconSize,
+      rate: rate,
+      beginAlignment: Alignment.centerLeft,
+      beginColor: Colors.pink,
+      endColor: Colors.white
+  );
+
   Widget _buildFavorites() {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        BicolorIcon(iconData: Icons.favorite, iconSize: 40, rate: 0.3, beginAlignment: Alignment.centerLeft, beginColor: Colors.pink, endColor: Colors.white),
-        BicolorIcon(iconData: Icons.favorite, iconSize: 50, rate: 0.5, beginAlignment: Alignment.centerLeft, beginColor: Colors.pink, endColor: Colors.white),
-        BicolorIcon(iconData: Icons.favorite, iconSize: 60, rate: 0.7, beginAlignment: Alignment.centerLeft, beginColor: Colors.pink, endColor: Colors.white),
+        _buildFavorite(iconSize: 40, rate: 0.3),
+        _buildFavorite(iconSize: 50, rate: 0.5),
+        _buildFavorite(iconSize: 60, rate: 0.7),
       ],
     );
   }
+
+  Widget _buildStar({ @required final double iconSize, @required final double rate }) => BicolorIcon(
+      iconData: Icons.star,
+      iconSize: iconSize,
+      rate: rate,
+      beginAlignment: Alignment.bottomCenter,
+      beginColor: Colors.yellow,
+      endColor: Colors.white
+  );
 
   Widget _buildStars() {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        BicolorIcon(iconData: Icons.star, iconSize: 20, rate: 0.2, beginAlignment: Alignment.bottomCenter, beginColor: Colors.yellow, endColor: Colors.white),
-        BicolorIcon(iconData: Icons.star, iconSize: 30, rate: 0.5, beginAlignment: Alignment.bottomCenter, beginColor: Colors.yellow, endColor: Colors.white),
-        BicolorIcon(iconData: Icons.star, iconSize: 40, rate: 0.8, beginAlignment: Alignment.bottomCenter, beginColor: Colors.yellow, endColor: Colors.white),
+        _buildStar(iconSize: 20, rate: 0.2),
+        _buildStar(iconSize: 30, rate: 0.5),
+        _buildStar(iconSize: 40, rate: 0.8),
       ],
     );
   }
+
+  Widget _buildCreditCard({ @required final double iconSize, @required final double rate }) => BicolorIcon(
+      iconData: Icons.credit_card,
+      iconSize: iconSize,
+      rate: rate,
+      beginAlignment: Alignment.topLeft,
+      beginColor: Colors.green,
+      endColor: Colors.blue
+  );
 
   Widget _buildCreditCards() {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        BicolorIcon(iconData: Icons.credit_card, iconSize: 90, rate: 0.2, beginAlignment: Alignment.topLeft, beginColor: Colors.green, endColor: Colors.blue),
-        BicolorIcon(iconData: Icons.credit_card, iconSize: 120, rate: 0.5, beginAlignment: Alignment.topLeft, beginColor: Colors.green, endColor: Colors.blue),
-        BicolorIcon(iconData: Icons.credit_card, iconSize: 150, rate: 0.8, beginAlignment: Alignment.topLeft, beginColor: Colors.green, endColor: Colors.blue),
+        _buildCreditCard(iconSize: 90, rate: 0.2),
+        _buildCreditCard(iconSize: 120, rate: 0.5),
+        _buildCreditCard(iconSize: 150, rate: 0.8),
       ],
     );
   }
@@ -68,6 +95,8 @@ class _State extends State<BicolorIconScreen> {
       max: 100,
       divisions: 100,
       label: _currentSliderValue.round().toString(),
+      activeColor: Colors.blueGrey,
+      inactiveColor: Colors.grey,
       onChanged: (double value) {
         setState(() {
           _currentSliderValue = value;
