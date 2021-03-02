@@ -1,7 +1,7 @@
 import 'dart:math';
 
+import 'package:bicolor_icon/bicolor_icon.dart';
 import 'package:flutter/material.dart';
-import 'package:linnefromice/views/components/bicolor_icon.dart';
 
 class BicolorIconScreen extends StatefulWidget {
   @override
