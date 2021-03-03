@@ -83,6 +83,26 @@ class FeedService {
   }
 }
 
+class Feed {
+  final String title;
+  final String authorName;
+  final String pubDate;
+  final String description;
+  final String link;
+
+  Feed({this.title, this.authorName, this.pubDate, this.description, this.link});
+
+  factory Feed.fromJson(Map<String, dynamic> json) {
+    return Feed(
+      title: json['title']['__cdata'],
+      authorName: json['dc\$creator']['\$t'],
+      pubDate: json['pubDate']['\$t'],
+      description: json['description']['__cdata'].replaceAll("\\n", "\n"),
+      link: json['link']['\$t']
+    );
+  }
+}
+
 class OriginalFeedScreen extends StatefulWidget {
   @override
   _State createState() => _State();
