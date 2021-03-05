@@ -98,7 +98,8 @@ class FeedService {
       return utf8.decode(response.bodyBytes);
     }).then((bodyString) {
       transformer.parse(bodyString);
-      final json = transformer.toGData();
+      final String json = transformer.toGData()
+          .replaceAll("\\.", ""); // FormatException: Unrecognized string escape -> \.
       final List<dynamic> list = jsonDecode(json)['rss']['channel']['item'];
       return list.map((json) => Feed.fromJson(json)).toList();
     });
