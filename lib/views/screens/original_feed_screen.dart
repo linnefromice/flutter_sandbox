@@ -66,19 +66,42 @@ final List<String> genres = [
   "markdown",
   "firestore",
 ];
+
+class Feed {
+  final String title;
+  final String authorName;
+  final String pubDate;
+  final String description;
+  final String link;
+
+  Feed({this.title, this.authorName, this.pubDate, this.description, this.link});
+
+  factory Feed.fromJson(Map<String, dynamic> json) {
+    return Feed(
+      title: json['title']['__cdata'],
+      authorName: json['dc\$creator']['\$t'],
+      pubDate: json['pubDate']['\$t'],
+      description: json['description']['__cdata'].replaceAll("\\n", "\n"),
+      link: json['link']['\$t']
+    );
+  }
+}
+
 class FeedService {
   // final _targetUrl = 'https://zenn.dev/topics/flutter/feed';
   String _buildUrl(final String genre) => "https://zenn.dev/topics/$genre/feed";
 
-  Future<List> feed(final String genre) async {
+  Future<List<Feed>> feed(final String genre) async {
     final client = new http.Client();
     final transformer = Xml2Json();
     return await client.get(_buildUrl(genre)).then((response) {
       return utf8.decode(response.bodyBytes);
     }).then((bodyString) {
       transformer.parse(bodyString);
-      final json = transformer.toGData();
-      return jsonDecode(json)['rss']['channel']['item'];
+      final String json = transformer.toGData()
+          .replaceAll("\\.", ""); // FormatException: Unrecognized string escape -> \.
+      final List<dynamic> list = jsonDecode(json)['rss']['channel']['item'];
+      return list.map((json) => Feed.fromJson(json)).toList();
     });
   }
 }
@@ -89,7 +112,7 @@ class OriginalFeedScreen extends StatefulWidget {
 }
 
 class _State extends State<OriginalFeedScreen> {
-  List _datas = [];
+  List<Feed> _datas = [];
   String dropdownValue = 'flutter';
 
   @override
@@ -105,11 +128,11 @@ class _State extends State<OriginalFeedScreen> {
     });
   }
 
-  Widget _buildCard(dynamic item) {
+  Widget _buildCard(final Feed feed) {
     return Card(
       child: GestureDetector(
         onTap: () async {
-          String url = item['link']['\$t'].toString();
+          String url = feed.link;
           print(url);
           if (await canLaunch(url)) {
             await launch(url);
@@ -118,13 +141,13 @@ class _State extends State<OriginalFeedScreen> {
           }
         },
         child: ListTile(
-          title: Text(item['title']['__cdata'].toString()),
+          title: Text(feed.title),
           subtitle: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(item['dc\$creator']['\$t'].toString()),
-              Text(item['pubDate']['\$t'].toString()),
-              Text(item['description']['__cdata'].toString().replaceAll("\\n", "\n"))
+              Text(feed.authorName),
+              Text(feed.pubDate),
+              Text(feed.description)
             ],
           ),
         ),
