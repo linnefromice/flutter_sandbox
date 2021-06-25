@@ -6,27 +6,27 @@ class FocusTextFieldPage extends StatefulWidget {
 }
 
 class _State extends State<FocusTextFieldPage> {
-  TextEditingController textEditingController;
-  FocusNode focusNode;
-  bool isFocused = true;
+  TextEditingController _textEditingController;
+  FocusNode _focusNode;
+  bool _isFocused = true;
 
   @override
   void initState() {
     super.initState();
-    textEditingController = TextEditingController.fromValue(TextEditingValue(text: "Focused!!!"));
-    focusNode = FocusNode();
-    focusNode.addListener(_onFocusChange);
+    _textEditingController = TextEditingController.fromValue(TextEditingValue(text: "Focused!!!"));
+    _focusNode = FocusNode();
+    _focusNode.addListener(_onFocusChange);
   }
 
   @override
   void dispose() {
-    focusNode.removeListener(_onFocusChange);
-    focusNode.dispose();
+    _focusNode.removeListener(_onFocusChange);
+    _focusNode.dispose();
     super.dispose();
   }
 
   void _onFocusChange() {
-    debugPrint("Focus: " + focusNode.hasFocus.toString());
+    debugPrint("Focus: " + _focusNode.hasFocus.toString());
   }
 
   @override
@@ -37,10 +37,10 @@ class _State extends State<FocusTextFieldPage> {
       ),
       body: Center(
         child: Focus(
-          focusNode: focusNode,
+          focusNode: _focusNode,
           onFocusChange: (focused) {
             setState(() {
-              isFocused = focused;
+              _isFocused = focused;
             });
           },
           child: Container(
@@ -48,15 +48,15 @@ class _State extends State<FocusTextFieldPage> {
             height: 300,
             color: Colors.tealAccent,
             child: Center(
-              child: isFocused
-                ? TextField(controller: textEditingController)
+              child: _isFocused
+                ? TextField(controller: _textEditingController)
                 : Text("Not focused..."),
             ),
           ),
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () => isFocused ? focusNode.unfocus() : focusNode.requestFocus()
+        onPressed: () => _isFocused ? _focusNode.unfocus() : _focusNode.requestFocus()
       ),
     );
   }
