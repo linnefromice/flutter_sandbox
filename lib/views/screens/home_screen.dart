@@ -42,6 +42,10 @@ class HomeScreen extends StatelessWidget {
       "label": "bicolor_icon",
       "pathName": "/bicolor_icon"
     },
+    {
+      "label": "focus_text_field",
+      "pathName": "/focus_text_field"
+    },
   ];
 
   Widget _buildNavigationWidget(
