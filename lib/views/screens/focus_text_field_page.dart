@@ -6,18 +6,27 @@ class FocusTextFieldPage extends StatefulWidget {
 }
 
 class _State extends State<FocusTextFieldPage> {
+  TextEditingController textEditingController;
   FocusNode focusNode;
+  bool isFocused = true;
 
   @override
   void initState() {
     super.initState();
+    textEditingController = TextEditingController.fromValue(TextEditingValue(text: "Focused!!!"));
     focusNode = FocusNode();
+    focusNode.addListener(_onFocusChange);
   }
 
   @override
   void dispose() {
+    focusNode.removeListener(_onFocusChange);
     focusNode.dispose();
     super.dispose();
+  }
+
+  void _onFocusChange() {
+    debugPrint("Focus: " + focusNode.hasFocus.toString());
   }
 
   @override
@@ -27,12 +36,27 @@ class _State extends State<FocusTextFieldPage> {
         title: Text("FocusTextFieldPage"),
       ),
       body: Center(
-        child: TextField(
+        child: Focus(
           focusNode: focusNode,
+          onFocusChange: (focused) {
+            setState(() {
+              isFocused = focused;
+            });
+          },
+          child: Container(
+            width: 300,
+            height: 300,
+            color: Colors.tealAccent,
+            child: Center(
+              child: isFocused
+                ? TextField(controller: textEditingController)
+                : Text("Not focused..."),
+            ),
+          ),
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () => focusNode.requestFocus(),
+        onPressed: () => isFocused ? focusNode.unfocus() : focusNode.requestFocus()
       ),
     );
   }
