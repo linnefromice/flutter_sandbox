@@ -9,9 +9,8 @@ class _State extends State<FocusTextFieldPage> {
   @override
   Widget build(BuildContext contesxt) {
     return Scaffold(
-      appBar: AppBar(),
-      body: Center(
-        child: Text("FocusTextFieldPage"),
+      appBar: AppBar(
+        title: Text("FocusTextFieldPage"),
       ),
     );
   }
